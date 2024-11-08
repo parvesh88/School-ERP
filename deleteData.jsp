@@ -3,11 +3,9 @@
 <%
     String id = request.getParameter("id");
 	Statement s = con.createStatement();
-	boolean b = s.execute("DELETE FROM STUDENTS WHERE ID = " + id);
-	
-	if(!b)
-	    out.println("Deleted Student ID "+id);	
-	else
-	    out.println("Error!");
+    s.execute("DELETE FROM STUDENTS WHERE ID = " + id);
+	s.close();
+	con.close();
+    out.println("Deleted Student ID "+id);	
 %>
 
