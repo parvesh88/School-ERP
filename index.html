@@ -10,6 +10,9 @@
 <div class="w3-container w3-container-fluid w3-clearfix" >
 </br>
 <p class="w3-center w3-black w3-text-white w3-bold w3-large" >STUDENT MANAGEMENT SYSTEM</p>
+</br>
+<p id="p1" class="w3-xlarge w3-green" >Add Student</p>
+</br>
 <div ng-app="app" ng-controller="ctrl"  >
 </br>
 Admission Number <input id="ad_no" style="width:20%" class="w3-input" name="" type="number" autocomplete="off" />
@@ -37,15 +40,55 @@ Name <input id="sname" style="width:60%" class="w3-input" name="sname" type="tex
 Address <input id="address" style="width:60%" class="w3-input" name="address" type="text" required />
 </br>
 <button style="width: 10%" class="w3-input w3-blue" ng-click="saveData()" >Submit</button>
-<p class="w3-black w3-text-white" style="padding-left: 20px;">{{status}}</p>
+<p class="w3-green w3-text-white" style="padding-left: 20px;">{{status}}</p>
 </br>
-</div>
 </br>
+<!--
 <form method="post" action="viewAllData.jsp" >
 <input style="width: 10%;" class="w3-input w3-blue" type="submit" value="View Data" />
 </form>
+-->
+<p id="p1" class="w3-xlarge w3-green" >View Student</p> </br>
+Admission Number <input id="ad_no_view" style="width:20%" class="w3-input" name="" type="number" autocomplete="off" />
+</br>
+<button style="width: 10%" class="w3-input w3-blue" ng-click="viewData()" >Submit</button>
+</br>
+<table class="w3-table w3-striped" ng-repeat="student in data" >
+  <tr >
+    <td id="c" >ADMISSION NUMBER</td>
+    <td id="n" >{{ student.ad_no }}</td>
+  </tr>
+  <tr>
+    <td id="c" >CLASS</td>
+    <td>{{ student.class | uppercase }}</td>
+    </tr>
+  <tr>
+    <td id="c" >NAME</td>
+    <td>{{ student.name | uppercase}}</td>
+    </tr>
+  <tr>
+   <td id="c" >ADDRESS</td>
+    <td>{{ student.address | uppercase }}</td>
+  </tr>
+  <tr>
+  	<td><button class="w3-btn w3-red" ng-click="deleteData(student.ad_no)" >DELETE</button></td>
+   </tr>
+</table>
+</br>
+<p style="padding-left: 10px" class="w3-red w3-text-white" >{{delete_status}} </p>
 </div>
 </div>
 </body>
 <script src="resources/script.js" ></script>
+<style>
+#c {
+	width: 20%;
+	font-weight: bold;
+}
+
+#p1 {
+	 padding-left: 12%;
+	 width: 40%;
+}
+</style>
 </html>

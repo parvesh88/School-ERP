@@ -1,11 +1,15 @@
 <%@page import="java.sql.*" %>
 <%@include file="datasource.jsp" %>  
 <%
-    String id = request.getParameter("id");
-	Statement s = con.createStatement();
-    s.execute("DELETE FROM STUDENTS WHERE ID = " + id);
+    String ad_no = null;
+	Statement s = null;
+	
+    s= con.createStatement();
+    ad_no = request.getParameter("ad_no");
+    s.execute("DELETE FROM STUDENTS WHERE ADMISSION_NO = " + ad_no);
 	s.close();
 	con.close();
-    out.println("Deleted Student ID "+id);	
+	
+    out.println("Deleted Student Admission No. "+ ad_no);	
 %>
 

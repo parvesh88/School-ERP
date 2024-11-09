@@ -7,8 +7,11 @@
 <body>
 <%@include file="datasource.jsp" %>  
 <%
-	Statement s = con.createStatement();
-	ResultSet rs = s.executeQuery("SELECT * FROM STUDENTS");
+	Statement s = null;
+	ResultSet rs = null;
+	
+    s = con.createStatement();
+    rs = s.executeQuery("SELECT * FROM STUDENTS");
 %>
 <div ng-app="app" ng-controller="ctrl" class="w3-container w3-container-fluid" >
 <p class="w3-red w3-center">{{delete_status}}</p>
