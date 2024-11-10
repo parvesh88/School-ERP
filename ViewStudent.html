@@ -1,0 +1,61 @@
+<html>
+<head>
+<!-- <meta name="viewport" content="width=device-width,initial-scale=1.0" > -->
+<link rel="stylesheet" href="resources/w3.css">
+</head>
+<script src="resources/angular.min.js" ></script>
+<script src="resources/script.js" ></script>
+<body>
+</br>
+<p class="w3-center w3-black w3-text-white w3-bold w3-xxlarge" >SCHOOL ERP SYSTEM</p>
+</br>
+<div class="w3-sidebar w3-bar-block" style="width:25%">
+  <p class="w3-center w3-black w3-xxlarge" >MENU</p>
+  <a href="AddStudent.html" class="w3-bar-item w3-button">Add Student</a>
+  <a href="ViewStudent.html" class="w3-bar-item w3-button">View / Edit Student</a>
+  <a href="#" class="w3-bar-item w3-button">Fees Collection</a>
+</div>
+<div ng-app="app" ng-controller="ctrl"  >
+<div style="padding-left: 300px" class="w3-container w3-container-fluid w3-clearfix" >
+</br>
+<p id="p1" class="w3-xlarge w3-green" >View Student</p> </br>
+Admission Number <input id="ad_no_view" style="width:20%" class="w3-input" name="" type="number" autocomplete="off" />
+</br>
+<button style="width: 10%" class="w3-input w3-blue" ng-click="viewData()" >Submit</button>
+</br>
+<table class="w3-table w3-striped" ng-repeat="student in data" >
+  <tr >
+    <td id="c" >ADMISSION NUMBER</td>
+    <td id="n" >{{ student.ad_no }}</td>
+  </tr>
+  <tr>
+    <td id="c" >CLASS</td>
+    <td>{{ student.class | uppercase }}</td>
+    </tr>
+  <tr>
+    <td id="c" >NAME</td>
+    <td>{{ student.name | uppercase}}</td>
+    </tr>
+  <tr>
+   <td id="c" >ADDRESS</td>
+    <td>{{ student.address | uppercase }}</td>
+  </tr>
+  <tr>
+  	<td><button class="w3-btn w3-red" ng-click="deleteData(student.ad_no)" >DELETE</button></td>
+   </tr>
+</table>
+</br>
+<p style="padding-left: 10px" class="w3-red w3-text-white" >{{delete_status}} </p>
+</div>
+</div>
+</body>
+<style>
+#c {
+	width: 40%;
+	font-weight: bold;
+}
+#p1 {
+	 padding-left: 12%;
+	 width: 40%;
+}
+</style>
