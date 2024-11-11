@@ -4,6 +4,7 @@
 <link rel="stylesheet" href="resources/w3.css">
 </head>
 <script src="resources/angular.min.js" ></script>
+<script src="resources/script.js" ></script>
 <body>
 <%@include file="datasource.jsp" %>  
 <%
@@ -25,4 +26,4 @@
 </table>
 </div>
 </body>
-<script src="resources/script.js" ></script>
+</html>

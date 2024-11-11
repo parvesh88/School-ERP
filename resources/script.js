@@ -1,13 +1,16 @@
-var ad_no, s_class, sname, address;
+var ad_no, s_class, sname, fname, address, r_no, tr;
 var ad_no_view;
 var app = angular.module('app', []);
 	app.controller('ctrl', function($scope, $http){
-		$scope.saveData = function (){
+		$scope.saveData = function(){
 		        ad_no = document.getElementById("ad_no").value;
 		        s_class = document.getElementById("s_class").value;
 			    sname = document.getElementById("sname").value;
+			    fname = document.getElementById("fname").value;
 	            address = document.getElementById("address").value;
-		        $http.post("/saveData.jsp?ad_no="+ad_no+"&s_class="+s_class+"&sname="+sname+"&address="+address).then(function(response){
+	            r_no = document.getElementById("r_no").value;
+	            tr = document.getElementById("tr").value;
+		        $http.post("/saveData.jsp?ad_no="+ad_no+"&s_class="+s_class+"&sname="+sname+"&fname="+fname+"&address="+address+"&r_no="+r_no+"&tr="+tr).then(function(response){
 			    console.log("save data");
 			    $scope.status = response.data;	
 			    });
