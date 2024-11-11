@@ -19,7 +19,7 @@
 </br>
 <p id="p1" class="w3-xlarge w3-green" >Add Student</p>
 </br>
-<div ng-app="app" ng-controller="ctrl"  >
+<div ng-app="app" ng-controller="ctrl" ng-init="val='false'" >
 </br>
 Admission Number<input id="ad_no" style="width:20%" class="w3-input" name="" type="number" autocomplete="off" />
 </br>
@@ -49,11 +49,15 @@ Father's Name <input id="fname" class="w3-input" name="fname" type="text" requir
 </br>
 Address <input id="address" class="w3-input" name="address" type="text" required />
 </br>
-Transport <select style="width: 20%" class="w3-input"  id="tr" >
+Transport <select style="width: 10%" class="w3-input"  id="tr" ng-model="val" ng-change="check(val)"  >
   <option value="true">YES</option>
   <option selected value="false">NO</option>
   </select>
+  </br>
+  <div ng-show="hide" >
+<input id="vno" class="w3-input" placeholder="Vehicle Number" type="text" >
 </br>
+</div>
 Upload Photo <input id="img" name="img" type="file" required />
 </br>
 </br>
@@ -67,7 +71,7 @@ Upload Photo <input id="img" name="img" type="file" required />
 	 padding-left: 12%;
 	 width: 40%;
 }
-#sname, #fname, #address{
+#sname, #fname, #address, #vno{
 	width: 40%;
 }
 </style>

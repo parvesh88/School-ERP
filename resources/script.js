@@ -19,7 +19,8 @@ var app = angular.module('app', []);
 			    ad_no_view = document.getElementById("ad_no_view").value;
 		        $http.post("/viewData.jsp?ad_no="+ad_no_view).then(function(response){
 			    console.log("view data " + ad_no_view);
-			    $scope.data = response.data.data;	
+			    $scope.data = response.data.data;
+                // $scope.testdata = response.data;	
 			    });
 		    };
 		$scope.editData = function(id){
@@ -35,4 +36,7 @@ var app = angular.module('app', []);
 			    $scope.delete_status = response.data;
 			    });
 		    };
+		$scope.check = function(val) {
+                $scope.hide = val == 'true' ? true : false;
+            };
 		});
