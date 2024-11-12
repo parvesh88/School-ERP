@@ -16,7 +16,8 @@
                             .add("fname", rs.getString(6))
                             .add("address", rs.getString(3))
                             .add("r_no", rs.getString(8))
-                            .add("tr", rs.getString(9))))
+                            .add("tr", rs.getString(9))
+                            .add("v_no", rs.getString(10))))
                             .build();
 	    out.println(data);
 	}

@@ -10,7 +10,8 @@ var app = angular.module('app', []);
 	            address = document.getElementById("address").value;
 	            r_no = document.getElementById("r_no").value;
 	            tr = document.getElementById("tr").value;
-		        $http.post("/saveData.jsp?ad_no="+ad_no+"&s_class="+s_class+"&sname="+sname+"&fname="+fname+"&address="+address+"&r_no="+r_no+"&tr="+tr).then(function(response){
+	            v_no = document.getElementById("v_no").value;
+		        $http.post("/saveData.jsp?ad_no="+ad_no+"&s_class="+s_class+"&sname="+sname+"&fname="+fname+"&address="+address+"&r_no="+r_no+"&tr="+tr+"&v_no="+v_no).then(function(response){
 			    console.log("save data");
 			    $scope.status = response.data;	
 			    });
@@ -34,6 +35,12 @@ var app = angular.module('app', []);
 		        $http.post("/deleteData.jsp?ad_no="+num).then(function(response){
 			    console.log("delete data");
 			    $scope.delete_status = response.data;
+			    });
+		    };
+		$scope.collectFees = function(){
+		        $http.post("/collectFees.jsp?ad_no="+num).then(function(response){
+			    console.log("Collect Fees");
+			    $scope.fees_collection_status = response.data;
 			    });
 		    };
 		$scope.check = function(val) {
