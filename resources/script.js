@@ -3,25 +3,15 @@ var ad_no_view;
 var app = angular.module('app', []);
 	app.controller('ctrl', function($scope, $http){
 		$scope.saveData = function(){
-		        ad_no = document.getElementById("ad_no").value;
-		        s_class = document.getElementById("s_class").value;
-			    sname = document.getElementById("sname").value;
-			    fname = document.getElementById("fname").value;
-	            address = document.getElementById("address").value;
-	            r_no = document.getElementById("r_no").value;
-	            tr = document.getElementById("tr").value;
-	            v_no = document.getElementById("v_no").value;
-		        $http.post("/saveData.jsp?ad_no="+ad_no+"&s_class="+s_class+"&sname="+sname+"&fname="+fname+"&address="+address+"&r_no="+r_no+"&tr="+tr+"&v_no="+v_no).then(function(response){
+		        $http.post("/saveData.jsp?ad_no="+$scope.ad_no+"&s_class="+$scope.s_class+"&sname="+$scope.sname+"&fname="+$scope.fname+"&address="+$scope.address+"&r_no="+$scope.r_no+"&tr="+$scope.tr+"&v_no="+$scope.v_no).then(function(response){
 			    console.log("save data");
 			    $scope.status = response.data;	
 			    });
 		    };
 		$scope.viewData = function(id){
-			    ad_no_view = document.getElementById("ad_no_view").value;
-		        $http.post("/viewData.jsp?ad_no="+ad_no_view).then(function(response){
+		        $http.post("/viewData.jsp?ad_no="+$scope.ad_no_view).then(function(response){
 			    console.log("view data " + ad_no_view);
 			    $scope.data = response.data.data;
-                // $scope.testdata = response.data;	
 			    });
 		    };
 		$scope.editData = function(id){
@@ -47,3 +37,4 @@ var app = angular.module('app', []);
                 $scope.hide = val == 'true' ? true : false;
             };
 		});
+

@@ -37,7 +37,7 @@
       <br>
       <p id="p1" class="w3-xlarge w3-green">Collect Fees</p><br>
       Admission Number <input id="ad_no_view" style="width:20%" class="w3-input" name="" type="number" autocomplete="off">{{name}}<br>
-      Date <input style="width: 30%" class="w3-input" id="date" type="date"><br>
+      Date <input style="width: 30%" class="w3-input" id="date" type="date" min="2024-04-01"><br>
       Fees <input id="fees" style="width:20%" class="w3-input" name="" type="number" autocomplete="off"><br>
       Transport Charges <input id="tr_charges" style="width:20%" class="w3-input" name="" type="number" autocomplete="off"><br>
       Other Charges <input id="o_charges" style="width:20%" class="w3-input" name="" type="number" autocomplete="off"><br>
@@ -46,4 +46,7 @@
     </div>
   </div>
 </body>
+<script>
+	document.getElementById("date").setAttribute("value", new Date().toISOString().split("T")[0]);
+</script>
 </html>

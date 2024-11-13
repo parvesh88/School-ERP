@@ -13,7 +13,7 @@
          padding-left: 12%;
          width: 40%;
   }
-  #sname, #fname, #address, #vno{
+  #i{
         width: 40%;
   }
   </style>
@@ -33,9 +33,9 @@
     <p id="p1" class="w3-xlarge w3-green">Add Student</p><br>
     <div ng-app="app" ng-controller="ctrl" ng-init="val='false'">
       <br>
-      Admission Number<input id="ad_no" style="width:20%" class="w3-input" name="" type="number" autocomplete="off"><br>
+      Admission Number<input ng-model="ad_no" style="width:20%" class="w3-input" name="" type="number" autocomplete="off"><br>
       <br>
-      Class <select style="width: 20%" class="w3-input" name="class" id="s_class">
+      Class <select style="width: 20%" class="w3-input" name="class" ng-model="s_class">
         <option value="NURSERY">
           NURSERY
         </option>
@@ -77,11 +77,11 @@
         </option>
       </select><br>
       <br>
-      Roll Number <input id="r_no" class="w3-input" name="r_no" type="number" style="width: 20%" required=""><br>
-      Student's Name <input id="sname" class="w3-input" name="sname" type="text" required=""><br>
-      Father's Name <input id="fname" class="w3-input" name="fname" type="text" required=""><br>
-      Address <input id="address" class="w3-input" name="address" type="text" required=""><br>
-      Transport <select style="width: 10%" class="w3-input" id="tr" ng-model="val" ng-change="check(val)">
+      Roll Number <input ng-model="r_no" class="w3-input" name="r_no" type="number" style="width: 20%" required=""><br>
+      Student's Name <input id="i" ng-model="sname" class="w3-input" name="sname" type="text" required=""><br>
+      Father's Name <input id="i" ng-model="fname" class="w3-input" name="fname" type="text" required=""><br>
+      Address <input id="i" ng-model="address" class="w3-input" name="address" type="text" required=""><br>
+      Transport <select style="width: 10%" class="w3-input" ng-model="tr" ng-change="check(tr)">
         <option value="true">
           YES
         </option>
@@ -90,7 +90,7 @@
         </option>
       </select><br>
       <div ng-show="hide">
-        <input id="v_no" class="w3-input" placeholder="Vehicle Number" type="text"><br>
+        <input style="width: 30%" ng-model="v_no" class="w3-input" placeholder="Vehicle Number" type="text"><br>
       </div>Upload Photo <input id="img" name="img" type="file"><br>
       <br>
       <button style="width: 10%" class="w3-input w3-blue" ng-click="saveData()">Submit</button>
