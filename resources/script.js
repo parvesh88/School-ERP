@@ -28,9 +28,15 @@ var app = angular.module('app', []);
 			    });
 		    };
 		$scope.collectFees = function(){
-		        $http.post("/collectFees.jsp?ad_no="+num).then(function(response){
+		        $http.post("/collectFees.jsp?ad_no="+$scope.ad_no+"&date="+$scope.date+"&fees="+$scope.fees+"&tr_charges="+$scope.tr_charges+"&o_charges="+$scope.o_charges+"&remarks="+$scope.remarks).then(function(response){
 			    console.log("Collect Fees");
 			    $scope.fees_collection_status = response.data;
+			    });
+		    };
+		$scope.viewFees = function(id){
+		        $http.post("/viewFees.jsp?ad_no="+$scope.ad_no).then(function(response){
+			    console.log("view fees" + ad_no_view);
+			    $scope.data = response.data.data;
 			    });
 		    };
 		$scope.check = function(val) {

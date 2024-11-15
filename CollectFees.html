@@ -31,22 +31,25 @@
     <a href="AddStudent.html" class="w3-bar-item w3-button">Add Student</a>
     <a href="ViewStudent.html" class="w3-bar-item w3-button">View / Edit Student</a> 
     <a href="CollectFees.html" class="w3-bar-item w3-button">Fees Collection</a>
+    <a href="ViewFees.html" class="w3-bar-item w3-button">View Fees</a>
   </div>
   <div ng-app="app" ng-controller="ctrl">
     <div style="padding-left: 250px" class="w3-container w3-container-fluid w3-clearfix">
       <br>
       <p id="p1" class="w3-xlarge w3-green">Collect Fees</p><br>
-      Admission Number <input id="ad_no_view" style="width:20%" class="w3-input" name="" type="number" autocomplete="off">{{name}}<br>
-      Date <input style="width: 30%" class="w3-input" id="date" type="date" min="2024-04-01"><br>
-      Fees <input id="fees" style="width:20%" class="w3-input" name="" type="number" autocomplete="off"><br>
-      Transport Charges <input id="tr_charges" style="width:20%" class="w3-input" name="" type="number" autocomplete="off"><br>
-      Other Charges <input id="o_charges" style="width:20%" class="w3-input" name="" type="number" autocomplete="off"><br>
-      Remarks <input id="remarks" style="width:60%" class="w3-input" name="" type="text" autocomplete="off"><br>
-      <button ng-click="collectFees()" style="width: 20%" class="w3-btn w3-blue">Submit</button>
+      Admission Number <input ng-model="ad_no" style="width:20%" class="w3-input" type="number" autocomplete="off">{{name}}<br>
+      Date <input ng-model="date" style="width: 30%" class="w3-input" id="fees_date" type="date" min="2024-04-01" value="" ><br>
+      Fees <input ng-model="fees" style="width:20%" class="w3-input" name="" type="number" autocomplete="off"><br>
+      Transport Charges <input ng-model="tr_charges" style="width:20%" class="w3-input" name="" type="number" autocomplete="off"><br>
+      Other Charges <input ng-model="o_charges" style="width:20%" class="w3-input" name="" type="number" autocomplete="off"><br>
+      Remarks <input ng-model="remarks" style="width:60%" class="w3-input" name="" type="text" autocomplete="off"><br>
+      <button ng-click="collectFees()" class="w3-btn w3-blue">Submit</button>
     </div>
+    </br>
+    <p class="w3-green" > {{fees_collection_status}} </p>
   </div>
 </body>
 <script>
-	document.getElementById("date").setAttribute("value", new Date().toISOString().split("T")[0]);
+	document.getElementById("fees_date").setAttribute("value", new Date().toISOString().split("T")[0]);
 </script>
 </html>
