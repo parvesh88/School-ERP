@@ -21,21 +21,18 @@
          padding-left: 12%;
          width: 40%;
   }
-  
-   #row {
-  	   text-align: center;
- }
+
   </style>
 </head>
 <body>
   <br>
-  <p class="w3-center w3-black w3-text-white w3-bold w3-xxlarge">
-  SCHOOL ERP SYSTEM</p><br>
+  <p class="w3-center w3-black w3-text-white w3-bold w3-xxlarge">SCHOOL ERP SYSTEM</p><br>
   <div class="w3-sidebar w3-bar-block" style="width:15%">
     <p class="w3-center w3-black w3-xxlarge">MENU</p>
     <a href="AddStudent.html" class="w3-bar-item w3-button">Add Student</a>
     <a href="ViewStudent.html" class="w3-bar-item w3-button">View / Edit Student</a> 
     <a href="CollectFees.html" class="w3-bar-item w3-button">Fees Collection</a>
+    <a href="ViewFees.html" class="w3-bar-item w3-button">View Fees</a>
   </div>
   <div ng-app="app" ng-controller="ctrl">
     <div style="padding-left: 250px" class="w3-container w3-container-fluid w3-clearfix">
@@ -44,26 +41,24 @@
       Admission Number <input ng-model="ad_no" style="width:20%" class="w3-input" type="number" autocomplete="off"><br>
       <button style="width: 10%" class="w3-input w3-blue" ng-click="viewFees()">Submit</button><br>
       <!-- <p>{{testdata}}</p> -->
-      <table class="w3-table w3-striped w3-border" ng-repeat="student in data">
-        <tr id="header" ng-if="$index === 0" >
-          <td>ADMISSION NUMBER</td>
+      <table class="w3-table w3-striped w3-border" >
+        <tr id="header" >
+          <td>ADMISSION NO.</td>
           <td>DATE</td>
           <td>FEES</td>
           <td>TRANSPORT CHARGES</td>
           <td>OTHER CHARGES</td>
           <td>REMARKS</td>
         </tr>
-        <tr id="row" >
+        <tr ng-repeat="student in data" >
           <td>{{ student.ad_no }}</td>
-          <td>{{ student.date}}</td>
+          <td>{{ student.date }}</td>
           <td>{{ student.fees }}</td>
-          <td>{{ student.tr_charges}}</td>
-          <td>{{ student.o_charges}}</td>
-          <td>{{ student.rem || uppercase }}</td>
+          <td>{{ student.tr_charges }}</td>
+          <td>{{ student.o_charges }}</td>
+          <td>{{ student.rem | uppercase }}</td>
         </tr>
       </table><br>
-      </br>
-      <p style="padding-left: 10px" class="w3-red w3-text-white">{{delete_status}}</p>
     </div>
   </div>
 </body>
