@@ -1,102 +1,101 @@
+
 <!DOCTYPE html>
 <html>
-<head>
-  <meta name="generator" content=
-  "HTML Tidy for HTML5 for Linux version 5.6.0">
-  <!-- <meta name="viewport" content="width=device-width,initial-scale=1.0" > -->
-  <link rel="stylesheet" href="resources/w3.css">
-  <script src="resources/angular.min.js"></script>
-  <script src="resources/script.js"></script>
-  <title></title>
-  <style>
-  #p1 {
-         padding-left: 12%;
-         width: 40%;
-  }
-  #i{
-        width: 40%;
-  }
-  </style>
-</head>
-<body>
-  <br>
-  <p class="w3-center w3-black w3-text-white w3-bold w3-xxlarge">SCHOOL ERP SYSTEM</p>
-  <div class="w3-sidebar w3-bar-block" style="width:15%">
-    <p class="w3-center w3-black w3-xxlarge">MENU</p>
-    <a href="AddStudent.html" class="w3-bar-item w3-button">Add Student</a>
-    <a href="ViewStudent.html" class="w3-bar-item w3-button">View / Edit Student</a> 
-    <a href="CollectFees.html" class="w3-bar-item w3-button">Fees Collection</a>
-    <a href="ViewFees.html" class="w3-bar-item w3-button">View Fees</a>
-  </div>
-  <div style="padding-left: 250px" class="w3-container w3-container-fluid w3-clearfix">
-    <br>
-    <br>
-    <p id="p1" class="w3-xlarge w3-green">Add Student</p><br>
-    <div ng-app="app" ng-controller="ctrl" ng-init="val='false'">
-      <br>
-      Admission Number<input ng-model="ad_no" style="width:20%" class="w3-input" name="" type="number" autocomplete="off"><br>
-      <br>
-      Class <select style="width: 20%" class="w3-input" name="class" ng-model="s_class">
-        <option value="NURSERY">
-          NURSERY
-        </option>
-        <option value="L.K.G">
-          L.K.G
-        </option>
-        <option value="U.K.G">
-          U.K.G
-        </option>
-        <option value="1ST">
-          1ST
-        </option>
-        <option value="2ND">
-          2ND
-        </option>
-        <option value="3RD">
-          3RD
-        </option>
-        <option value="4TH">
-          4TH
-        </option>
-        <option value="5TH">
-          5TH
-        </option>
-        <option value="6TH">
-          6TH
-        </option>
-        <option value="7TH">
-          7TH
-        </option>
-        <option value="8TH">
-          8TH
-        </option>
-        <option value="9TH">
-          9TH
-        </option>
-        <option value="10TH">
-          10TH
-        </option>
-      </select><br>
-      <br>
-      Roll Number <input ng-model="r_no" class="w3-input" name="r_no" type="number" style="width: 20%" required=""><br>
-      Student's Name <input id="i" ng-model="sname" class="w3-input" name="sname" type="text" required=""><br>
-      Father's Name <input id="i" ng-model="fname" class="w3-input" name="fname" type="text" required=""><br>
-      Address <input id="i" ng-model="address" class="w3-input" name="address" type="text" required=""><br>
-      Transport <select style="width: 10%" class="w3-input" ng-model="tr" ng-change="check(tr)">
-        <option value="true">
-          YES
-        </option>
-        <option selected value="false">
-          NO
-        </option>
-      </select><br>
-      <div ng-show="hide">
-        <input style="width: 30%" ng-model="v_no" class="w3-input" placeholder="Vehicle Number" type="text"><br>
-      </div>Upload Photo <input id="img" name="img" type="file"><br>
-      <br>
-      <button style="width: 10%" class="w3-input w3-blue" ng-click="saveData()">Submit</button>
-      <p class="w3-green w3-text-white" style="padding-left: 20px;">{{status}}</p>
-    </div>
-  </div>
-</body>
+    <head>
+        <meta name="generator" content=
+              "HTML Tidy for HTML5 for Linux version 5.6.0">
+        <!-- <meta name="viewport" content="width=device-width,initial-scale=1.0" > -->
+        <link rel="stylesheet" href="resources/w3.css">
+        <script src="resources/angular.min.js"></script>
+        <script src="resources/script.js"></script>
+        <title></title>
+        <style>
+            #p1 {
+                padding-left: 12%;
+                width: 40%;
+            }
+            #i{
+                width: 40%;
+            }
+        </style>
+    </head>
+    <body>
+<p class="w3-center w3-black w3-text-white w3-bold w3-xlarge">SCHOOL ERP SYSTEM</p>
+        <div class="w3-sidebar w3-bar-block" style="width:15%">
+            <p class="w3-center w3-black w3-xxlarge">MENU</p>
+            <a href="AddStudent.html" class="w3-bar-item w3-button">Add Student</a>
+            <a href="ViewStudent.html" class="w3-bar-item w3-button">View / Edit Student</a> 
+            <a href="CollectFees.html" class="w3-bar-item w3-button">Fees Collection</a>
+            <a href="ViewFees.html" class="w3-bar-item w3-button">View Fees</a>
+        </div>
+        <div style="padding-left: 250px" class="w3-container w3-container-fluid w3-clearfix">
+<p id="p1" class="w3-xlarge w3-green">Add Student</p><br>
+            <div ng-app="app" ng-controller="ctrl" ng-init="val='false'">
+                <br>
+                Admission Number<input ng-model="ad_no" style="width:20%" class="w3-input" name="" type="number" autocomplete="off"><br>
+                <br>
+                Class <select style="width: 20%" class="w3-input" name="class" ng-model="s_class">
+                    <option value="NURSERY">
+                        NURSERY
+                    </option>
+                    <option value="L.K.G">
+                        L.K.G
+                    </option>
+                    <option value="U.K.G">
+                        U.K.G
+                    </option>
+                    <option value="1ST">
+                        1ST
+                    </option>
+                    <option value="2ND">
+                        2ND
+                    </option>
+                    <option value="3RD">
+                        3RD
+                    </option>
+                    <option value="4TH">
+                        4TH
+                    </option>
+                    <option value="5TH">
+                        5TH
+                    </option>
+                    <option value="6TH">
+                        6TH
+                    </option>
+                    <option value="7TH">
+                        7TH
+                    </option>
+                    <option value="8TH">
+                        8TH
+                    </option>
+                    <option value="9TH">
+                        9TH
+                    </option>
+                    <option value="10TH">
+                        10TH
+                    </option>
+                </select><br>
+                <br>
+                Roll Number <input ng-model="r_no" class="w3-input" name="r_no" type="number" style="width: 20%" required=""><br>
+                Student's Name <input id="i" ng-model="sname" class="w3-input" name="sname" type="text" required=""><br>
+                Father's Name <input id="i" ng-model="fname" class="w3-input" name="fname" type="text" required=""><br>
+                Address <input id="i" ng-model="address" class="w3-input" name="address" type="text" required=""><br>
+                Transport <select style="width: 10%" class="w3-input" ng-model="tr" ng-change="check(tr)">
+                    <option value="true">
+                        YES
+                    </option>
+                    <option selected value="false">
+                        NO
+                    </option>
+                </select><br>
+                <div ng-show="hide">
+                    <input style="width: 30%" ng-model="v_no" class="w3-input" placeholder="Vehicle Number" type="text"><br>
+                </div>
+                Upload Photo <input id="img" name="img" type="file"><br>
+                <br>
+                <button style="width: 10%" class="w3-input w3-blue" ng-click="saveData()">Submit</button>
+                <p class="w3-green w3-text-white" style="padding-left: 20px;">{{status}}</p>
+            </div>
+        </div>
+    </body>
 </html>
