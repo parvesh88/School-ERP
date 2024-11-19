@@ -5,10 +5,19 @@
     JsonObject jo = null;
     Statement s = null;
     StringBuilder sb = null;
+    String v = "", v1 = "";
     
     sb = new StringBuilder();
     s = con.createStatement();
-    rs = s.executeQuery("SELECT * FROM FEES WHERE ADMISSION_NO=" + request.getParameter("ad_no"));
+    
+    v = request.getParameter("date");
+    v1 = request.getParameter("ad_no");
+    
+    // if(!v1.equals(""))
+       rs = s.executeQuery("SELECT * FROM FEES WHERE ADMISSION_NO=" + v1);
+       
+    // if(!v.equals(""))
+      // rs = s.executeQuery("SELECT * FROM FEES WHERE R_DATE=' " + v + " ' ");
     
     while (rs.next()) {
         jo = Json.createObjectBuilder()
@@ -18,7 +27,7 @@
                 .add("ad_no", rs.getInt(2))
                 .add("rem", rs.getString(6))
                 .add("fees", rs.getInt(3))
-		.add("r_no", rs.getInt(8))
+		        .add("r_no", rs.getInt(8))
                 .build();
         sb.append(jo.toString() + ",");
     }

@@ -57,6 +57,14 @@
                         <td>{{ student.r_no }}</td>
                     </tr>
                     <tr>
+                        <td id="c">BIRTH DATE</td>
+                        <td>{{ student.b_date }}</td>
+                    </tr>
+                    <tr>
+                        <td id="c">AADHAR NUMBER</td>
+                        <td>{{ student.a_num }}</td>
+                    </tr>
+                    <tr>
                         <td id="c">NAME</td>
                         <td>{{ student.name | uppercase}}</td>
                     </tr>
@@ -72,7 +80,7 @@
                         <td id="c">TRANSPORT</td>
                         <td>{{ student.tr == 'TRUE' ? 'YES' : 'NO' }}</td>
                     </tr>
-                    <tr ng -show="tr' " class="ng-hide">
+                    <tr ng -show=" tr == 'YES' " >
                         <td id="c">VEHICLE NUMBER</td>
                         <td>{{ student.v_no | uppercase}}</td>
                     </tr>

@@ -34,26 +34,41 @@
         <div ng-app="app" ng-controller="ctrl">
             <div style="padding-left: 250px" class="w3-container w3-container-fluid w3-clearfix">
                 <p id="p1" class="w3-xlarge w3-green">View Fees</p><br>
-                Admission Number <input ng-model="ad_no" style="width:20%" class="w3-input" type="number" autocomplete="off"><br>
-                <button style="width: 10%" class="w3-input w3-blue" ng-click="viewFees()">Submit</button><br>
+                <p class="w3-center w3-red" >Receipts will be edited and deleted By Admin</p>
+                <table>
+                <tr>
+                <td>
+                Admission Number <input ng-model="ad_no" style="width:30%" class="w3-input" type="number" autocomplete="off"><br>
+                <button style="width: 30%" class="w3-input w3-blue" ng-click="viewFees()">Submit</button><br>
+                </td>
+                <td>
+                <!--
+                 Receipt Date <input ng-model="date" placeholder="YYYY-MM-DD" style="width:50%" class="w3-input" type="number" autocomplete="off"><br>
+                <button style="width: 30%" class="w3-input w3-blue" ng-click="viewFeesByDate()">Submit</button><br>
+                -->
+                </td>
+                </tr>
+                </table>
                 <!-- <p>{{testdata}}</p> -->
                 <table class="w3-table w3-striped w3-border" >
                     <tr id="header" >
-			<td>RECEIPT NO.</td>
+			            <td>RECEIPT NO.</td>
                         <td>ADMISSION NO.</td>
                         <td>DATE</td>
                         <td>FEES</td>
                         <td>TRANSPORT CHARGES</td>
                         <td>OTHER CHARGES</td>
+                        <td>TOTAL FEES </td>
                         <td>REMARKS</td>
                     </tr>
                     <tr ng-repeat="student in data" >
-			<td>{{ student.r_no }}</td>
+			            <td>{{ student.r_no }}</td>
                         <td>{{ student.ad_no }}</td>
                         <td>{{ student.date }}</td>
                         <td>{{ student.fees }} INR</td>
                         <td>{{ student.tr_charges }} INR</td>
                         <td>{{ student.o_charges }} INR</td>
+                        <td ng-init= "total = student.fees + student.tr_charges + student.o_charges ; " > {{ total }} INR</td>
                         <td>{{ student.rem | uppercase }}</td>
                     </tr>
                 </table><br>

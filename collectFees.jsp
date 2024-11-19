@@ -20,18 +20,7 @@
     tr_charges = c(request.getParameter("tr_charges"));
     o_charges = c(request.getParameter("o_charges"));
     remarks = request.getParameter("remarks");
-    /*
-    ad_no=1;
-    date="18-11-2024";
-    fees=2500;
-    tr_charges=500;
-    o_charges=200;
-    remarks="R";
-    */
-/*
-    s = createStatement();
-    s.execute("SELECT ");
-*/
+
     ps = con.prepareStatement("INSERT INTO FEES(ADMISSION_NO, R_DATE, FEES, T_CHARGES, O_CHARGES, REMARKS, R_NO) VALUES(?, ?, ?, ?, ?, ?, ?)");
     ps.setInt(1, ad_no);
     ps.setDate(2, java.sql.Date.valueOf(LocalDate.now()));
