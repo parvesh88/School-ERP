@@ -1,78 +1,82 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <!-- <meta name="viewport" content="width=device-width,initial-scale=1.0" > -->
-        <link rel="stylesheet" href="resources/w3.css">
-        <script src="resources/angular.min.js"></script>
-        <script src="resources/script.js"></script>
-        <title></title>
-        <style>
-            img{
-                height: 200px;
-                width: 200px;
-            }
-            #header {
-                font-weight: bold;
-                text-align: center;
-            }
-            #p1 {
-                padding-left: 12%;
-                width: 40%;
-            }
 
-        </style>
-    </head>
-    <body>
-        <p class="w3-center w3-black w3-text-white w3-bold w3-xlarge">SCHOOL ERP SYSTEM</p><br>
-        <div class="w3-sidebar w3-bar-block" style="width:15%">
-            <p class="w3-center w3-black w3-xxlarge">MENU</p>
-            <a href="AddStudent.html" class="w3-bar-item w3-button">Add Student</a>
-            <a href="ViewStudent.html" class="w3-bar-item w3-button">View / Edit Student</a> 
-            <a href="CollectFees.html" class="w3-bar-item w3-button">Fees Collection</a>
-            <a href="ViewFees.html" class="w3-bar-item w3-button">View Fees</a>
-        </div>
-        <div ng-app="app" ng-controller="ctrl">
-            <div style="padding-left: 250px" class="w3-container w3-container-fluid w3-clearfix">
-                <p id="p1" class="w3-xlarge w3-green">View Fees</p><br>
-                <p class="w3-center w3-red" >Receipts will be edited and deleted By Admin</p>
-                <table>
+<head>
+    <!-- <meta name="viewport" content="width=device-width,initial-scale=1.0" > -->
+    <link rel="stylesheet" href="resources/w3.css">
+    <script src="resources/angular.min.js"></script>
+    <script src="resources/script.js"></script>
+    <title></title>
+    <style>
+        img {
+            height: 200px;
+            width: 200px;
+        }
+
+        #header {
+            font-weight: bold;
+            text-align: center;
+        }
+
+        #p1 {
+            padding-left: 12%;
+            width: 40%;
+        }
+    </style>
+</head>
+
+<body>
+    <p class="w3-center w3-black w3-text-white w3-bold w3-xlarge">SCHOOL ERP SYSTEM</p><br>
+    <div class="w3-sidebar w3-bar-block" style="width:15%">
+        <p class="w3-center w3-black w3-xxlarge">MENU</p>
+        <a href="AddStudent.html" class="w3-bar-item w3-button">Add Student</a>
+        <a href="ViewStudent.html" class="w3-bar-item w3-button">View / Edit Student</a>
+        <a href="CollectFees.html" class="w3-bar-item w3-button">Fees Collection</a>
+        <a href="ViewFees.html" class="w3-bar-item w3-button">View Fees</a>
+    </div>
+    <div ng-app="app" ng-controller="ctrl">
+        <div style="padding-left: 250px" class="w3-container w3-container-fluid w3-clearfix">
+            <p id="p1" class="w3-xlarge w3-green">View Fees</p><br>
+            <p class="w3-center w3-red">Receipts will be edited and deleted By Admin</p>
+            <table>
                 <tr>
-                <td>
-                Admission Number <input ng-model="ad_no" style="width:30%" class="w3-input" type="number" autocomplete="off"><br>
-                <button style="width: 30%" class="w3-input w3-blue" ng-click="viewFees()">Submit</button><br>
-                </td>
-                <td>
-                <!--
+                    <td>
+                        Admission Number <input ng-model="ad_no" style="width:30%" class="w3-input" type="number" autocomplete="off"><br>
+                        <button style="width: 30%" class="w3-input w3-blue" ng-click="viewFees()">Submit</button><br>
+                    </td>
+                    <td>
+                        <!--
                  Receipt Date <input ng-model="date" placeholder="YYYY-MM-DD" style="width:50%" class="w3-input" type="number" autocomplete="off"><br>
                 <button style="width: 30%" class="w3-input w3-blue" ng-click="viewFeesByDate()">Submit</button><br>
                 -->
-                </td>
+                    </td>
                 </tr>
-                </table>
-                <!-- <p>{{testdata}}</p> -->
-                <table class="w3-table w3-striped w3-border" >
-                    <tr id="header" >
-			            <td>RECEIPT NO.</td>
-                        <td>ADMISSION NO.</td>
-                        <td>DATE</td>
-                        <td>FEES</td>
-                        <td>TRANSPORT CHARGES</td>
-                        <td>OTHER CHARGES</td>
-                        <td>TOTAL FEES </td>
-                        <td>REMARKS</td>
-                    </tr>
-                    <tr ng-repeat="student in data" >
-			            <td>{{ student.r_no }}</td>
-                        <td>{{ student.ad_no }}</td>
-                        <td>{{ student.date }}</td>
-                        <td>{{ student.fees }} INR</td>
-                        <td>{{ student.tr_charges }} INR</td>
-                        <td>{{ student.o_charges }} INR</td>
-                        <td ng-init= "total = student.fees + student.tr_charges + student.o_charges ; " > {{ total }} INR</td>
-                        <td>{{ student.rem | uppercase }}</td>
-                    </tr>
-                </table><br>
-            </div>
+            </table>
+            <!-- <p>{{testdata}}</p> -->
+            <table class="w3-table w3-striped w3-border">
+                <tr id="header">
+                    <td>RECEIPT NO.</td>
+                    <td>ADMISSION NO.</td>
+                    <td>DATE</td>
+                    <td>FEES</td>
+                    <td>TRANSPORT CHARGES</td>
+                    <td>OTHER CHARGES</td>
+                    <td>TOTAL FEES </td>
+                    <td>REMARKS</td>
+                </tr>
+                <tr ng-repeat="student in data">
+                    <td>{{ student.r_no }}</td>
+                    <td>{{ student.ad_no }}</td>
+                    <td>{{ student.date }}</td>
+                    <td>{{ student.fees }} INR</td>
+                    <td>{{ student.tr_charges }} INR</td>
+                    <td>{{ student.o_charges }} INR</td>
+                    <td ng-init="total = student.fees + student.tr_charges + student.o_charges ; "> {{ total }} INR</td>
+                    <td>{{ student.rem | uppercase }}</td>
+                </tr>
+            </table><br>
         </div>
-    </body>
+    </div>
+</body>
+
 </html>

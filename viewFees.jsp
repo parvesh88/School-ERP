@@ -13,12 +13,6 @@
     v = request.getParameter("date");
     v1 = request.getParameter("ad_no");
     
-    // if(!v1.equals(""))
-       rs = s.executeQuery("SELECT * FROM FEES WHERE ADMISSION_NO=" + v1);
-       
-    // if(!v.equals(""))
-      // rs = s.executeQuery("SELECT * FROM FEES WHERE R_DATE=' " + v + " ' ");
-    
     while (rs.next()) {
         jo = Json.createObjectBuilder()
                 .add("date", rs.getString(7))
@@ -35,18 +29,5 @@
     out.println(data);
     
     rs.close();
-    /*
-    rs = s.executeQuery("SELECT NAME, S_CLASS, ADDRESS FROM STUDENTS WHERE ADMISSION_NO=" + request.getParameter("ad_no"));
     
-    while (rs.next()) {
-        jo = Json.createObjectBuilder()
-                .add("name", rs.getString(1))
-                .add("class", rs.getString(2))
-                .add("address", rs.getString(3))
-                .build();
-        sb.append(jo.toString() + ",");
-    }
-    String s_data = "{ \"student_data\" : [ " + sb.toString().substring(0, sb.toString().length() - 1) + " ]}";
-    out.println(s_data);
-    */
 %>

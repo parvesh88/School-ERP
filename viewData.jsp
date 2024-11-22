@@ -1,11 +1,13 @@
 <%@page import="java.sql.*, javax.json.*" %>
 <%@include file="datasource.jsp" %>  
-<%    Statement s = null;
+<%    
+    Statement s = null;
     ResultSet rs = null;
     JsonObject data = null;
     s = con.createStatement();
     // s.execute("DELETE FROM STUDENTS");
-    rs = s.executeQuery("SELECT * FROM STUDENTS WHERE ADMISSION_NO=" + request.getParameter("ad_no"));
+    rs = s.executeQuery("SELECT * FROM STUDENTS WHERE ADMISSION_NO=" + 
+         request.getParameter("ad_no"));
     while (rs.next()) {
         data = Json.createObjectBuilder()
                 .add("data", Json.createArrayBuilder()
